@@ -17,4 +17,14 @@ public class Address {
     private String uf;
     private String complement;
     private String number;
+
+    public Address(AddressDTO addressDTO) {
+        this.logradouro = addressDTO.logradouro();
+        this.neighborhood = addressDTO.neighborhood();
+        this.zipcode = addressDTO.zipcode();
+        this.city = addressDTO.city();
+        this.uf = addressDTO.uf();
+        this.complement = addressDTO.complement();
+        this.number = addressDTO.number();
+    }
 }
