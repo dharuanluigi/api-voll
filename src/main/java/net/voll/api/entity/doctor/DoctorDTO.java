@@ -11,15 +11,12 @@ import net.voll.api.entity.AddressDTO;
 import net.voll.api.entity.doctor.enums.Speciality;
 
 public record DoctorDTO(
-
         @NotBlank
         String name,
         @NotBlank @Email
         String email,
-
         @NotBlank
         String phone,
-
         @NotBlank @Pattern(regexp = "\\d{4,6}")
         String crm,
         @NotNull
