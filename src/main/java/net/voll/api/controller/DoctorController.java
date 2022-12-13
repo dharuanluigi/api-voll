@@ -30,7 +30,7 @@ public class DoctorController {
 
     @GetMapping
     public Page<ListAllDoctors> getAll(@PageableDefault(sort = {"name"}) Pageable pagination) {
-        return repository.findAll(pagination).map(ListAllDoctors::new);
+        return repository.findAllByActiveTrue(pagination).map(ListAllDoctors::new);
     }
 
     @PutMapping
@@ -38,5 +38,12 @@ public class DoctorController {
     public void update(@RequestBody @Valid UpdateDoctorDTO updateDoctorDTO) {
         var doctor = repository.getReferenceById(updateDoctorDTO.id());
         doctor.updateData(updateDoctorDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void delete(@PathVariable Long id) {
+        var doctor = repository.getReferenceById(id);
+        doctor.inactive();
     }
 }
