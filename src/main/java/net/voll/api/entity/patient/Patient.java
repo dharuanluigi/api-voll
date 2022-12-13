@@ -39,4 +39,18 @@ public class Patient {
         this.cpf = patientDTO.cpf();
         this.address = new Address(patientDTO.addressDTO());
     }
+
+    public void updateData(UpdatePatientDTO updatePatientDTO) {
+        if(updatePatientDTO.name() != null) {
+            this.name = updatePatientDTO.name();
+        }
+
+        if(updatePatientDTO.phone() != null) {
+            this.phone = updatePatientDTO.phone();
+        }
+
+        if(updatePatientDTO.addressDTO() != null) {
+            this.address.updateData(updatePatientDTO.addressDTO());
+        }
+    }
 }

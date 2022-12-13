@@ -3,6 +3,7 @@ package net.voll.api.controller;
 import jakarta.validation.Valid;
 import net.voll.api.entity.patient.Patient;
 import net.voll.api.entity.patient.PatientDTO;
+import net.voll.api.entity.patient.UpdatePatientDTO;
 import net.voll.api.entity.patient.response.ListAllPatients;
 import net.voll.api.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,12 @@ public class PatientController {
     @GetMapping
     public Page<ListAllPatients> getAll(@PageableDefault(sort = "name") Pageable pagination) {
         return repository.findAll(pagination).map(ListAllPatients::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void update(@RequestBody UpdatePatientDTO updatePatientDTO) {
+        var patient = repository.getReferenceById(updatePatientDTO.id());
+        patient.updateData(updatePatientDTO);
     }
 }

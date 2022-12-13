@@ -2,9 +2,9 @@ package net.voll.api.entity.patient.response;
 
 import net.voll.api.entity.patient.Patient;
 
-public record ListAllPatients(String name, String email, String cpf) {
+public record ListAllPatients(Long id, String name, String email, String cpf) {
 
     public ListAllPatients(Patient patient) {
-        this(patient.getName(), patient.getEmail(), patient.getCpf());
+        this(patient.getId(), patient.getName(), patient.getEmail(), patient.getCpf());
     }
 }
