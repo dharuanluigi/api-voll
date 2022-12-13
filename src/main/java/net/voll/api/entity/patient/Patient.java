@@ -25,6 +25,8 @@ public class Patient {
 
     private String email;
 
+    private String phone;
+
     private String cpf;
 
     @Embedded
@@ -33,6 +35,7 @@ public class Patient {
     public Patient(PatientDTO patientDTO) {
         this.name = patientDTO.name();
         this.email = patientDTO.email();
+        this.phone = patientDTO.phone();
         this.cpf = patientDTO.cpf();
         this.address = new Address(patientDTO.addressDTO());
     }
