@@ -9,7 +9,6 @@ public record UpdateDoctorDTO(
         Long id,
         String name,
         String phone,
-
         @JsonProperty("address") @Valid
         AddressDTO addressDTO
 ) {
