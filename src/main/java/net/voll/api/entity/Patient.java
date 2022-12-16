@@ -1,4 +1,4 @@
-package net.voll.api.entity.patient;
+package net.voll.api.entity;
 
 
 import jakarta.persistence.*;
@@ -7,7 +7,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import net.voll.api.entity.Address;
+import net.voll.api.dto.PatientDTO;
+import net.voll.api.dto.UpdatePatientDTO;
 
 @Entity
 @Table(name = "tb_patient")

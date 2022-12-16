@@ -1,12 +1,13 @@
-package net.voll.api.entity.doctor;
+package net.voll.api.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import net.voll.api.entity.Address;
-import net.voll.api.entity.doctor.enums.Speciality;
+import net.voll.api.dto.DoctorDTO;
+import net.voll.api.dto.UpdateDoctorDTO;
+import net.voll.api.enums.Speciality;
 
 @Entity
 @Table(name = "tb_doctor")
